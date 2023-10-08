@@ -1,0 +1,21 @@
+main {
+  min-height: 80vh;
+}
+
+.product-title {
+  height: 1.5em; /* Set a fixed height */
+  overflow: hidden; /* Hide overflow content */
+  text-overflow: ellipsis; /* Add ellipsis for long text */
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+.centered{
+  display: flex;
+  justify-content: center;
+}
+
+.hovered{
+  transform: scale(1.05);
+  transition: 200ms ease-in ;
+}
+
