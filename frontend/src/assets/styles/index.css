@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,300;8..144,400;8..144,500;8..144,600&display=swap');
+
 main {
   min-height: 80vh;
+}
+
+body {
+  font-family: 'Roboto Flex', sans-serif !important;
 }
 
 .product-title {
@@ -19,3 +25,7 @@ main {
   transition: 200ms ease-in ;
 }
 
+.modal-lb{
+  display: flex;
+  flex-direction: row;
+}

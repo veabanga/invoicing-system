@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { Button, Card, Form } from 'react-bootstrap'
-// import { Link } from 'react-router-dom'
+import { Button, Card, Form, Row, Col } from 'react-bootstrap'
 import Modal from './Modal/Modal'
 import '../assets/styles/index.css'
 import { AddToCart } from '../slices/cartSlice'
@@ -38,7 +37,7 @@ const Product = ({product}) => {
       />
 
       <Card.Body>
-            <Card.Title as='div'>
+            <Card.Title as='div' style={{textOverflow: 'ellipsis', width: '200px', whiteSpace: 'nowrap' , overflow: 'hidden'}}>
                 <strong>{product.name}</strong>
             </Card.Title>
 
@@ -55,31 +54,43 @@ const Product = ({product}) => {
 
         <img src={product.image} style={{maxHeight:'250px',maxWidth:'250px',borderRadius: '20px'}} alt={product.name}/>
 
-          <div className='modal-text'style={{padding:'15px'}}>
+          <div style={{padding:'15px'}}>
             <h5 className='my-0'><strong>{product.name}</strong></h5><br/>
             {product.description}<br/><br/>
-            <h5 className='my-0'><strong>₹{product.price}</strong></h5>
-            <span> (exclusive of taxes)</span>
-            <Form.Control
-              as='select'
-              value={qty}
-              onChange={(e) => setQty(Number(e.target.value))}
-            >
-              {[...Array(5).keys()].map((x)=>(
-                <option key={x+1} value={x+1}>
-                  {x+1}
-                </option>
-              ))}
-            </Form.Control>
 
-            <Button 
-              className='btn-block' 
-              type='button' 
-              variant='primary'
-              onClick={AddToCartHandler}
-            > 
-            Add To Cart 
-            </Button>
+            <Row>
+
+              <Col>
+                <h5 className='my-0'><strong>₹{product.price}</strong></h5>
+                <span> (exclusive of taxes)</span>
+              </Col>
+
+              <Col md={3}>
+              <Form.Control
+                as='select'
+                value={qty}
+                onChange={(e) => setQty(Number(e.target.value))}
+              >
+                {[...Array(5).keys()].map((x)=>(
+                  <option key={x+1} value={x+1}>
+                    {x+1}
+                  </option>
+                ))}
+              </Form.Control>
+              </Col>
+
+              <Col md={4}>
+              <Button 
+                className='btn-block' 
+                type='button' 
+                variant='primary'
+                onClick={AddToCartHandler}
+              > 
+              Add To Cart 
+              </Button>
+              </Col>
+
+            </Row>
 
           </div>
           
