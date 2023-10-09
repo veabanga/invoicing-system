@@ -29,3 +29,12 @@ body {
   display: flex;
   flex-direction: row;
 }
+
+.icon-edit{
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+}
+
+.text-green{
+  color: #4caf50 !important;
+}

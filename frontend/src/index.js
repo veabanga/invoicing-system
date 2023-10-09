@@ -17,6 +17,10 @@ import HomeScreen from './screens/HomeScreen';
 import CartScreen from './screens/CartScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
+import PrivateRoute from './components/privateRoute';
+import PlaceOrderScreen from './screens/PlaceOrderScreen';
+import ProfileScreen from './screens/ProfileScreen';
+import OrderScreen from './screens/OrderScreen';
 
 
 const router = createBrowserRouter(
@@ -27,6 +31,12 @@ const router = createBrowserRouter(
       <Route path='/login' index={true} element={<LoginScreen />} />
       <Route path='/register' index={true} element={<RegisterScreen />} />
 
+      <Route path='' element={<PrivateRoute/>}>
+        <Route path='/profile' index={true} element={<ProfileScreen />} />
+        <Route path='/placeorder' index={true} element={<PlaceOrderScreen />} />
+        <Route path='/order/:id' element={<OrderScreen />}/>
+
+      </Route>
     </Route>
   )
 )

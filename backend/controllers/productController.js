@@ -10,6 +10,7 @@ const getProducts = asyncHandler(async(req,res)=>{
     res.json(products);
 })
 
+// remove if not needed
 const getProductsById = asyncHandler(async(req,res)=>{
     const product = await Product.findById(req.params.id);
     if (product) {

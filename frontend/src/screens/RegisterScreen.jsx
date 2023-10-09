@@ -75,7 +75,7 @@ const RegisterScreen = () => {
                 </Form>
                 <Row>
             <Col>
-                New user? <Link to = '/register'> Register </Link>
+                Already have an account? <Link to = '/login'> Sign In </Link>
             </Col>
             </Row>
             </Col>

@@ -8,6 +8,7 @@ import { FaTrash } from 'react-icons/fa'
 const CartScreen = () => {
     const { cartItems } = useSelector((state)=> state.cart);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const AddToCartHandler = async (product, qty) => {
         dispatch(AddToCart({ ...product, qty }));
@@ -20,6 +21,11 @@ const CartScreen = () => {
     const clearCartHandler = async() => {
       dispatch(ClearCart());
     }
+
+    const checkoutHandler = () => {
+      // navigate('/login?redirect=/placeorder');
+      navigate('/placeorder')
+    };
 
   return (
     <Row>
@@ -84,9 +90,9 @@ const CartScreen = () => {
                   type='button'
                   className='btn-block'
                   disabled={cartItems.length === 0}
-                  onClick={clearCartHandler}
+                  onClick={checkoutHandler}
                 >
-                  Clear Cart
+                  Proceed To Checkout
                 </Button>
               </Col>
               <Col>
@@ -94,9 +100,9 @@ const CartScreen = () => {
                   type='button'
                   className='btn-block'
                   disabled={cartItems.length === 0}
-                  // onClick={checkoutHandler}
+                  onClick={clearCartHandler}
                 >
-                  Proceed To Checkout
+                  Clear Cart
                 </Button>
               </Col>
             </Row>

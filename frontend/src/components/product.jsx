@@ -37,7 +37,7 @@ const Product = ({product}) => {
       />
 
       <Card.Body>
-            <Card.Title as='div' style={{textOverflow: 'ellipsis', width: '200px', whiteSpace: 'nowrap' , overflow: 'hidden'}}>
+            <Card.Title as='div' style={{textOverflow: 'ellipsis', width: '250px', whiteSpace: 'nowrap' , overflow: 'hidden'}}>
                 <strong>{product.name}</strong>
             </Card.Title>
 
