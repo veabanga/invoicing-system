@@ -27,7 +27,15 @@ const CartScreen = () => {
       navigate('/placeorder')
     };
 
+    const goBack = () => {
+      navigate(-1);
+    }
+
   return (
+    <>
+    <button onClick={goBack} className='btn btn-light mb-4'>
+        Go Back
+    </button>
     <Row>
         <Col md={8}>
             <h1 className="mb-4">Your Cart</h1>
@@ -111,6 +119,7 @@ const CartScreen = () => {
         </Card>
       </Col>
     </Row>
+    </>
   )
 }
 

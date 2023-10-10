@@ -1,6 +1,5 @@
 import { Table, Button, Row, Col } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import { FaTimes } from 'react-icons/fa';
 import Message from '../components/message';
 import Loader from '../components/loader';
 import { useGetMyOrdersQuery } from '../slices/ordersApiSlice';
@@ -8,11 +7,10 @@ import { useGetMyOrdersQuery } from '../slices/ordersApiSlice';
 const ProfileScreen = () => {
 
     const { data: orders, isLoading, error } = useGetMyOrdersQuery();
-    console.log(orders);
 
     return (
         <Row>
-            <Col md={8}>
+            <Col md={12}>
             <h2>My Orders</h2>
             {isLoading ? (
             <Loader />

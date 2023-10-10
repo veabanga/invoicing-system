@@ -3,6 +3,7 @@ import { useNavigate,Link } from 'react-router-dom'
 import { Row, Col, Button, Card, Image, ListGroup } from 'react-bootstrap';
 import { useCreateOrderMutation } from '../slices/ordersApiSlice';
 import { ClearCart } from '../slices/cartSlice';
+import { calculateItemTax } from '../utils.js/cartUtils';
 import { toast } from 'react-toastify';
 import Message from '../components/message';
 import Loader from '../components/loader';
@@ -11,7 +12,7 @@ import Loader from '../components/loader';
 const PlaceOrderScreen = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const cart = useSelector(state => state.cart);
+    const cart = useSelector((state) => state.cart);
     let res = {}
     const [createOrder, { isLoading, error }] = useCreateOrderMutation();
 
@@ -32,7 +33,15 @@ const PlaceOrderScreen = () => {
         }
     }
 
+    const goBack = () => {
+      navigate(-1);
+    }
+  
   return (
+    <>
+    <button onClick={goBack} className='btn btn-light mb-4'>
+        Go Back
+    </button>
     <Row>
         <Col md={8}>
           <ListGroup variant='flush'>
@@ -59,7 +68,10 @@ const PlaceOrderScreen = () => {
                           </Link>
                         </Col>
                         <Col md={4}>
-                          {item.qty} x ₹{item.price} = ₹{(item.qty * item.price).toFixed(2)}
+                          {item.qty} x ₹{item.price} = ₹{(item.qty * item.price)}
+                        </Col>
+                        <Col md={2}>
+                          Tax: ₹{calculateItemTax(item.category, item.price, item.qty).toFixed(2)}
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -72,9 +84,11 @@ const PlaceOrderScreen = () => {
         <Col md={4}>
           <Card>
             <ListGroup variant='flush'>
+
               <ListGroup.Item>
                 <h2>Order Summary</h2>
               </ListGroup.Item>
+
               <ListGroup.Item>
                 <Row>
                   <Col>Items</Col>
@@ -83,12 +97,16 @@ const PlaceOrderScreen = () => {
               </ListGroup.Item>
 
               <ListGroup.Item>
+                <Row>
+                  <Col>Taxes</Col>
+                  <Col>₹{cart.taxPrice}</Col>
+                </Row>
+              </ListGroup.Item>
+
+              <ListGroup.Item>
                     <Row style={{fontWeight:'700'}}>
                     <Col >Total</Col>
                     <Col>₹{cart.totalPrice}</Col>
-                    </Row>
-                    <Row>
-                    <Col style={{fontSize:'0.8rem'}}>( Including ₹{cart.taxPrice} in taxes )</Col>
                     </Row>
                 </ListGroup.Item>
               
@@ -112,6 +130,7 @@ const PlaceOrderScreen = () => {
           </Card>
         </Col>
       </Row>
+    </>
   )
 }
 

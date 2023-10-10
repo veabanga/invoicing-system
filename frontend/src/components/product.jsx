@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { Button, Card, Form, Row, Col } from 'react-bootstrap'
 import Modal from './Modal/Modal'
@@ -16,11 +15,10 @@ const Product = ({product}) => {
 
   const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const AddToCartHandler = () => {
     dispatch(AddToCart({ ...product, qty }));
-    navigate('/cart');
+    setIsOpen(false);
   }
 
   return (

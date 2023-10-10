@@ -7,6 +7,7 @@ import Loader from '../components/loader';
 import {
   useGetOrderDetailsQuery
 } from '../slices/ordersApiSlice';
+import { calculateItemTax } from '../utils.js/cartUtils';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck} from '@fortawesome/free-regular-svg-icons';
@@ -71,6 +72,9 @@ const OrderScreen = () => {
                         <Col md={4}>
                           {item.qty} x ₹{item.price} = ₹{item.qty * item.price}
                         </Col>
+                        <Col>
+                          Tax: ₹{calculateItemTax(item.category, item.price, item.qty)}
+                        </Col>
                       </Row>
                     </ListGroup.Item>
                   ))}
@@ -99,7 +103,7 @@ const OrderScreen = () => {
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
-                <Row>
+                <Row style={{fontWeight:'700'}}>
                   <Col>Total</Col>
                   <Col>₹{order.totalPrice}</Col>
                 </Row>
