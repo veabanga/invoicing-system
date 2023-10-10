@@ -47,6 +47,38 @@ const products = [
     category: 'Product',
     price: 2900,
   },
+  {
+    name: 'VIP Membership',
+    image: '/images/VIP.jpg',
+    description:
+      'Avail Our VIP Membership now for exclusive offers',
+    category: 'Service',
+    price: 10000,
+  },
+  {
+    name: 'Gold Membership',
+    image: '/images/Gold.jpg',
+    description:
+      'Avail Our Gold Membership now for exclusive offers',
+    category: 'Service',
+    price: 5000,
+  },
+  {
+    name: 'Silver Membership',
+    image: '/images/Silver.jpg',
+    description:
+      'Avail Our Silver Membership now for exclusive offers',
+    category: 'Service',
+    price: 1000,
+  },
+  {
+    name: 'Bronze Membership',
+    image: '/images/Bronze.jpg',
+    description:
+      'Avail Our Bronze Membership now for exclusive offers',
+    category: 'Service',
+    price: 500,
+  },
 ]
 
 export default products;

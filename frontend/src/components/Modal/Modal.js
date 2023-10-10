@@ -10,7 +10,7 @@ const MODAL_STYLES = {
   padding: '20px',
   zIndex: 1000,
   maxWidth: '800px',
-  minWidth: '500px',
+  minWidth: '600px',
   borderRadius: '20px'
 }
 

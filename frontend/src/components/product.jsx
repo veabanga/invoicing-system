@@ -63,7 +63,7 @@ const Product = ({product}) => {
                 <span> (exclusive of taxes)</span>
               </Col>
 
-              <Col md={3}>
+              <Col md={4}>
               <Form.Control
                 as='select'
                 value={qty}
@@ -77,7 +77,7 @@ const Product = ({product}) => {
               </Form.Control>
               </Col>
 
-              <Col md={4}>
+              <Col md={5}>
               <Button 
                 className='btn-block' 
                 type='button' 

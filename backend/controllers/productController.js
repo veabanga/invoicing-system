@@ -6,20 +6,17 @@ import Product from "../models/productModel.js";
 // @route GET /api/products
 // @access public
 const getProducts = asyncHandler(async(req,res)=>{
-    const products = await Product.find({});
+    const products = await Product.find({category: 'Product'});
     res.json(products);
 })
 
-// remove if not needed
-const getProductsById = asyncHandler(async(req,res)=>{
-    const product = await Product.findById(req.params.id);
-    if (product) {
-        return res.json(product);
-    }
-    else{
-        res.status(404);
-        throw new Error('Resource Not Found'); 
-    }
+// @desc Fetch all services
+// @route GET /api/products/services
+// @access public
+const getServices = asyncHandler(async(req,res)=>{
+    const products = await Product.find({category: 'Service'});
+    res.json(products);
 })
 
-export {getProducts, getProductsById};
+
+export {getProducts, getServices};
