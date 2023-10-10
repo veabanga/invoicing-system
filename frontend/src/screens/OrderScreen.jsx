@@ -17,6 +17,7 @@ const OrderScreen = () => {
   const {
     data: order,
     isLoading,
+    error,
   } = useGetOrderDetailsQuery(orderId);
 
   const goBack = () => {
@@ -25,7 +26,9 @@ const OrderScreen = () => {
 
   return isLoading 
   ? ( <Loader /> ) 
-  : (
+  : error ? (
+    <Message variant='danger'>{error}</Message>
+  ) : (
     <>
     <button onClick={goBack} className='btn btn-light mb-4'>
         Go Back
@@ -33,7 +36,7 @@ const OrderScreen = () => {
     <div>
       <div className='centered icon-edit'><FontAwesomeIcon icon={faCircleCheck} className='text-green' /></div>
       <h1 className='text-green marBot-rm centered'> We Have Recieved Your Order</h1>
-      <h5 className='font-adjust centered'>Order No {order._id}</h5>
+      <h5 className='font-adjust centered'>Order No {orderId}</h5>
       <Row>
         <Col md={8}>
           <ListGroup variant='flush'>
