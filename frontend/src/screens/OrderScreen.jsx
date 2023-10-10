@@ -1,7 +1,5 @@
-import { useEffect} from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { Row, Col, ListGroup, Image, Card, Button } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { Row, Col, ListGroup, Image, Card } from 'react-bootstrap';
 import Message from '../components/message';
 import Loader from '../components/loader';
 import {
@@ -21,11 +19,6 @@ const OrderScreen = () => {
     isLoading,
     error,
   } = useGetOrderDetailsQuery(orderId);
-
-  console.log(order);
-
-
-  const { userInfo } = useSelector((state) => state.auth);
 
   const goBack = () => {
 		navigate(-1);

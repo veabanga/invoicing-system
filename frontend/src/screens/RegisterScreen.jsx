@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom'
 import { useRegisterMutation } from '../slices/usersApiSlice';
 import { toast } from 'react-toastify'
@@ -17,7 +17,6 @@ const RegisterScreen = () => {
     const navigate = useNavigate();
 
     const [register , {isLoading}] = useRegisterMutation();
-    const { userInfo } = useSelector( (state) => state.auth);
 
     const submitHandler = async(e) => {
         e.preventDefault();

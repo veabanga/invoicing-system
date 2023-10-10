@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate,Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Row, Col, Button, Card, Image, ListGroup } from 'react-bootstrap';
 import { useCreateOrderMutation } from '../slices/ordersApiSlice';
 import { ClearCart } from '../slices/cartSlice';

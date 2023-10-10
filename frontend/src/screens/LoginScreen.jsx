@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom'
 import { useLoginMutation } from '../slices/usersApiSlice';
 import { toast } from 'react-toastify'
@@ -16,7 +16,6 @@ const LoginScreen = () => {
     const navigate = useNavigate();
 
     const [login , {isLoading}] = useLoginMutation();
-    const { userInfo } = useSelector( (state) => state.auth);
 
     const submitHandler = async(e) => {
         e.preventDefault();
