@@ -1,4 +1,5 @@
 import express from "express";
+import path from 'path';
 import connectDB from "./config/db.js";
 import dotenv from 'dotenv';
 import productRoutes from './routes/productRoutes.js'
@@ -29,6 +30,7 @@ app.use('/api/orders', orderRoutes);
 if(process.env.NODE_ENV === 'production'){
     //static files will be served here
     app.use(express.static(path.join(__dirname, '/frontend/build')));
+
     app.get('*',(req,res)=>
     res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
     )
