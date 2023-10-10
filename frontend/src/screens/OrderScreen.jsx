@@ -27,7 +27,7 @@ const OrderScreen = () => {
   return isLoading 
   ? ( <Loader /> ) 
   : error ? (
-    <Message variant='danger'>{error}</Message>
+    <Message variant='danger'>{error?.data?.message}</Message>
   ) : (
     <>
     <button onClick={goBack} className='btn btn-light mb-4'>
