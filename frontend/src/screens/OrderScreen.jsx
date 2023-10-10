@@ -17,18 +17,15 @@ const OrderScreen = () => {
   const {
     data: order,
     isLoading,
-    error,
   } = useGetOrderDetailsQuery(orderId);
 
   const goBack = () => {
 		navigate(-1);
 	}
 
-  return isLoading ? (
-    <Loader />
-  ) : error ? (
-    <Message variant='danger'>{error}</Message>
-  ) : (
+  return isLoading 
+  ? ( <Loader /> ) 
+  : (
     <>
     <button onClick={goBack} className='btn btn-light mb-4'>
         Go Back
