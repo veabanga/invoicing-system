@@ -36,7 +36,7 @@ const OrderScreen = () => {
     <div>
       <div className='centered icon-edit'><FontAwesomeIcon icon={faCircleCheck} className='text-green' /></div>
       <h1 className='text-green marBot-rm centered'> We Have Recieved Your Order</h1>
-      <h5 className='font-adjust centered'>Order No {orderId}</h5>
+      <h5 className='font-adjust centered'>Order No {order._id}</h5>
       <Row>
         <Col md={8}>
           <ListGroup variant='flush'>
