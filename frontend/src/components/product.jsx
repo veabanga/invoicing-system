@@ -48,7 +48,7 @@ const Product = ({product}) => {
     </div>
     
     <Modal open={isOpen} onClose={() => setIsOpen(false)}>
-      <div style={{marginTop:'5%', display:'flex', flexDirection:'row', alignItems:'center'}}>
+      <div className='modal-children'>
 
         <img src={product.image} style={{maxHeight:'250px',maxWidth:'250px',borderRadius: '20px'}} alt={product.name}/>
 
@@ -63,7 +63,7 @@ const Product = ({product}) => {
                 <span> (exclusive of taxes)</span>
               </Col>
 
-              <Col md={4}>
+              <Col md={3}>
               <Form.Control
                 as='select'
                 value={qty}

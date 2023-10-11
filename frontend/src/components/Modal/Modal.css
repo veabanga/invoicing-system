@@ -6,7 +6,7 @@ body.active-modal {
     padding: 10px 20px;
     display: block;
     margin: 100px auto 0;
-    font-size: 18px;
+    font-size: 1rem;
 }
 
 .modal, .overlay {
