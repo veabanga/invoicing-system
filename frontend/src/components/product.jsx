@@ -4,6 +4,7 @@ import { Button, Card, Form, Row, Col } from 'react-bootstrap'
 import Modal from './Modal/Modal'
 import '../assets/styles/index.css'
 import { AddToCart } from '../slices/cartSlice'
+import { toast } from 'react-toastify'
 
 
 const Product = ({product}) => {
@@ -19,6 +20,7 @@ const Product = ({product}) => {
   const AddToCartHandler = () => {
     dispatch(AddToCart({ ...product, qty }));
     setIsOpen(false);
+    toast.success('Item Added To Cart');
   }
 
   return (
